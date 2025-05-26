@@ -1,0 +1,22 @@
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python/
+env/
+venv/
+*.env
+.idea/  # Если используете PyCharm или другие IDE
+.vscode/ # Если используете VS Code
+*.sqlite3  # Ваша база данных SQLite
+db.sqlite3
+/media/  # Загруженные пользователями файлы
+/static_root/ # Сбор статики
+/staticfiles/ # Сбор статики
+
+# Django
+*.log
+local_settings.py  # Если у вас есть локальные настройки
+.DS_Store  # macOS specific
