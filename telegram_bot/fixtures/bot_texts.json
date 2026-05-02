@@ -3,7 +3,7 @@
 		"model": "telegram_bot.bottext",
 		"pk": 1,
 		"fields": {
-			"key": "HOME_BUTTON",
+			"key": "home_button",
 			"en": "🏠 Home",
 			"ru": "🏠 Главная",
 			"uz": "🏠 Bosh Sahifa"
@@ -13,7 +13,7 @@
 		"model": "telegram_bot.bottext",
 		"pk": 2,
 		"fields": {
-			"key": "START_MESSAGE",
+			"key": "start_message",
 			"en": "Hello! Welcome to EDDAcademy. How can I help you today?",
 			"ru": "Здравствуйте! Добро пожаловать в EDDAcademy. Чем могу помочь?",
 			"uz": "Assalomu alaykum! EDDAcademy'ga xush kelibsiz. Sizga qanday yordam bera olaman?"
@@ -23,7 +23,7 @@
 		"model": "telegram_bot.bottext",
 		"pk": 3,
 		"fields": {
-			"key": "LANGUAGE_SELECTION_MESSAGE",
+			"key": "language_selection_message",
 			"en": "Please choose your language:",
 			"ru": "Пожалуйста, выберите ваш язык:",
 			"uz": "Iltimos, tilingizni tanlang:"
@@ -33,7 +33,7 @@
 		"model": "telegram_bot.bottext",
 		"pk": 4,
 		"fields": {
-			"key": "LANGUAGE_CHANGED_MESSAGE",
+			"key": "language_changed_message",
 			"en": "Language changed to English.",
 			"ru": "Язык изменен на русский.",
 			"uz": "Til o'zbek tiliga o'zgartirildi."
@@ -43,557 +43,26 @@
 		"model": "telegram_bot.bottext",
 		"pk": 5,
 		"fields": {
-			"key": "UNKNOWN_COMMAND_MESSAGE",
-			"en": "Sorry, I don't understand that command. Please use the buttons below or type /start.",
-			"ru": "Извините, я не понимаю эту команду. Пожалуйста, используйте кнопки ниже или введите /start.",
-			"uz": "Kechirasiz, men bu buyruqni tushunmadim. Iltimos, pastdagi tugmalardan foydalaning yoki /start yozing."
+			"key": "about_us_message",
+			"en": "Our IT center EDDAcademy provides various courses such as web development, mobile development, data science, and graphic design. We focus on practical skills and offer job assistance.",
+			"ru": "Наш IT-центр EDDAcademy предлагает различные курсы, такие как веб-разработка, мобильная разработка, Data Science и графический дизайн. Мы ориентируемся на практические навыки и предлагаем помощь в трудоустройстве.",
+			"uz": "IT markazimiz EDDAcademy veb-ishlab chiqish, mobil ilovalar yaratish, Data Science va grafik dizayn kabi turli kurslarni taklif etadi. Biz amaliy ko'nikmalarga e'tibor qaratamiz va ishga joylashishga yordam beramiz."
 		}
 	},
 	{
 		"model": "telegram_bot.bottext",
 		"pk": 6,
 		"fields": {
-			"key": "BACK_BUTTON",
-			"en": "⬅️ Back",
-			"ru": "⬅️ Назад",
-			"uz": "⬅️ Ortga"
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 7,
-		"fields": {
-			"key": "MAIN_MENU_COURSES",
-			"en": "📚 Our Courses",
-			"ru": "📚 Наши Курсы",
-			"uz": "📚 Kurslarimiz"
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 8,
-		"fields": {
-			"key": "MAIN_MENU_ABOUT_US",
-			"en": "ℹ️ About Us",
-			"ru": "ℹ️ О нас",
-			"uz": "ℹ️ Biz Haqimizda"
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 9,
-		"fields": {
-			"key": "MAIN_MENU_FAQ",
-			"en": "❓ FAQ",
-			"ru": "❓ FAQ",
-			"uz": "❓ FAQ"
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 10,
-		"fields": {
-			"key": "MAIN_MENU_NEWS",
-			"en": "📰 News",
-			"ru": "📰 Новости",
-			"uz": "📰 Yangiliklar"
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 11,
-		"fields": {
-			"key": "MAIN_MENU_OPEN_LESSONS",
-			"en": "🗓️ Open Lessons",
-			"ru": "🗓️ Открытые Уроки",
-			"uz": "🗓️ Ochiq Darslar"
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 12,
-		"fields": {
-			"key": "MAIN_MENU_CONTACTS",
-			"en": "📞 Contacts",
-			"ru": "📞 Контакты",
-			"uz": "📞 Kontaktlar"
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 13,
-		"fields": {
-			"key": "MAIN_MENU_APPLY",
-			"en": "📝 Apply Now!",
-			"ru": "📝 Подать Заявку!",
-			"uz": "📝 Arizani Yuborish!"
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 14,
-		"fields": {
-			"key": "MAIN_MENU_LANGUAGE",
-			"en": "🌐 Change Language",
-			"ru": "🌐 Сменить Язык",
-			"uz": "🌐 Tilni O'zgartirish"
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 15,
-		"fields": {
-			"key": "COURSES_TITLE",
-			"en": "Choose a course category:",
-			"ru": "Выберите категорию курсов:",
-			"uz": "Kurslar kategoriyasini tanlang:"
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 16,
-		"fields": {
-			"key": "NO_COURSES_IN_CATEGORY",
-			"en": "No courses found in this category yet.",
-			"ru": "В этой категории пока нет курсов.",
-			"uz": "Ushbu kategoriyada hozircha kurslar topilmadi."
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 17,
-		"fields": {
-			"key": "COURSE_DETAILS_MESSAGE",
-			"en": "Course: {title}\nCategory: {category}\nDuration: {duration} months\nPrice: {price:.2f} {currency}\n\nDescription:\n{description}\n\n*Final Price: {final_price:.2f} {currency} (with {discount_percentage:.0f}% discount)*",
-			"ru": "Курс: {title}\nКатегория: {category}\nДлительность: {duration} месяцев\nЦена: {price:.2f} {currency}\n\nОписание:\n{description}\n\n*Итоговая цена: {final_price:.2f} {currency} (со скидкой {discount_percentage:.0f}%)*",
-			"uz": "Kurs: {title}\nKategoriya: {category}\nDavomiyligi: {duration} oy\nNarxi: {price:.2f} {currency}\n\nTavsifi:\n{description}\n\n*Yakuniy narx: {final_price:.2f} {currency} ({discount_percentage:.0f}% chegirma bilan)*"
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 18,
-		"fields": {
-			"key": "COURSE_DETAILS_MESSAGE_NO_DISCOUNT",
-			"en": "Course: {title}\nCategory: {category}\nDuration: {duration} months\nPrice: {price:.2f} {currency}\n\nDescription:\n{description}",
-			"ru": "Курс: {title}\nКатегория: {category}\nДлительность: {duration} месяцев\nЦена: {price:.2f} {currency}\n\nОписание:\n{description}",
-			"uz": "Kurs: {title}\nKategoriya: {category}\nDavomiyligi: {duration} oy\nNarxi: {price:.2f} {currency}\n\nTavsifi:\n{description}"
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 19,
-		"fields": {
-			"key": "SELECT_COURSE_FOR_APPLICATION",
-			"en": "Please select a course you'd like to apply for:",
-			"ru": "Пожалуйста, выберите курс, на который вы хотите подать заявку:",
-			"uz": "Iltimos, ariza berishni istagan kursingizni tanlang:"
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 20,
-		"fields": {
-			"key": "APPLICATION_FULL_NAME_REQUEST",
-			"en": "Please enter your full name (e.g., John Doe):",
-			"ru": "Пожалуйста, введите ваше полное имя (например, Иван Иванов):",
-			"uz": "Iltimos, to'liq ismingizni kiriting (masalan, Ali Aliyev):"
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 21,
-		"fields": {
-			"key": "APPLICATION_PHONE_NUMBER_REQUEST",
-			"en": "Please enter your phone number (e.g., +998901234567):",
-			"ru": "Пожалуйста, введите ваш номер телефона (например, +998901234567):",
-			"uz": "Iltimos, telefon raqamingizni kiriting (masalan, +998901234567):"
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 22,
-		"fields": {
-			"key": "APPLICATION_EMAIL_REQUEST",
-			"en": "Please enter your email address (optional, type 'skip' to omit):",
-			"ru": "Пожалуйста, введите ваш адрес электронной почты (необязательно, введите 'пропустить' для пропуска):",
-			"uz": "Iltimos, elektron pochta manzilingizni kiriting (ixtiyoriy, o'tkazib yuborish uchun 'o'tkazish' deb yozing):"
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 23,
-		"fields": {
-			"key": "APPLICATION_CONFIRMATION",
-			"en": "Please confirm your application details:\n\nCourse: {course_title}\nFull Name: {full_name}\nPhone: {phone_number}\nEmail: {email}\n\nIs this correct?",
-			"ru": "Пожалуйста, подтвердите данные вашей заявки:\n\nКурс: {course_title}\nПолное имя: {full_name}\nТелефон: {phone_number}\nEmail: {email}\n\nВсе верно?",
-			"uz": "Iltimos, arizangiz ma'lumotlarini tasdiqlang:\n\nKurs: {course_title}\nTo'liq ismi: {full_name}\nTelefon: {phone_number}\nEmail: {email}\n\nBu to'g'rimi?"
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 24,
-		"fields": {
-			"key": "APPLICATION_CONFIRMATION_NO_EMAIL",
-			"en": "Please confirm your application details:\n\nCourse: {course_title}\nFull Name: {full_name}\nPhone: {phone_number}\n\nIs this correct?",
-			"ru": "Пожалуйста, подтвердите данные вашей заявки:\n\nКурс: {course_title}\nПолное имя: {full_name}\nТелефон: {phone_number}\n\nВсе верно?",
-			"uz": "Iltimos, arizangiz ma'lumotlarini tasdiqlang:\n\nKurs: {course_title}\nTo'liq ismi: {full_name}\nTelefon: {phone_number}\n\nBu to'g'rimi?"
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 25,
-		"fields": {
-			"key": "APPLICATION_SUBMITTED",
-			"en": "Thank you! Your application has been submitted successfully. We will contact you shortly.",
-			"ru": "Спасибо! Ваша заявка успешно отправлена. Мы свяжемся с вами в ближайшее время.",
-			"uz": "Rahmat! Arizangiz muvaffaqiyatli qabul qilindi. Tez orada siz bilan bog'lanamiz."
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 26,
-		"fields": {
-			"key": "APPLICATION_CANCELLED",
-			"en": "Application cancelled.",
-			"ru": "Заявка отменена.",
-			"uz": "Ariza bekor qilindi."
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 27,
-		"fields": {
-			"key": "APPLICATION_INVALID_PHONE",
-			"en": "Invalid phone number format. Please try again (e.g., +998901234567):",
-			"ru": "Неверный формат номера телефона. Пожалуйста, попробуйте еще раз (например, +998901234567):",
-			"uz": "Telefon raqami formati noto'g'ri. Iltimos, qayta urinib ko'ring (masalan, +998901234567):"
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 28,
-		"fields": {
-			"key": "APPLICATION_INVALID_EMAIL",
-			"en": "Invalid email format. Please try again or type 'skip' to omit:",
-			"ru": "Неверный формат email. Пожалуйста, попробуйте еще раз или введите 'пропустить' для пропуска:",
-			"uz": "Email formati noto'g'ri. Iltimos, qayta urinib ko'ring yoki 'o'tkazish' deb yozing:"
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 29,
-		"fields": {
-			"key": "YES_BUTTON",
-			"en": "✅ Yes",
-			"ru": "✅ Да",
-			"uz": "✅ Ha"
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 30,
-		"fields": {
-			"key": "NO_BUTTON",
-			"en": "❌ No",
-			"ru": "❌ Нет",
-			"uz": "❌ Yo'q"
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 31,
-		"fields": {
-			"key": "SKIP_BUTTON",
-			"en": "⏩ Skip",
-			"ru": "⏩ Пропустить",
-			"uz": "⏩ O'tkazish"
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 32,
-		"fields": {
-			"key": "ABOUT_US_TITLE",
-			"en": "Welcome to the 'About Us' section. Please choose an option:",
-			"ru": "Добро пожаловать в раздел 'О нас'. Пожалуйста, выберите опцию:",
-			"uz": "Biz haqimizda' bo'limiga xush kelibsiz. Iltimos, variantni tanlang:"
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 33,
-		"fields": {
-			"key": "ABOUT_US_HISTORY_BUTTON",
-			"en": "📜 Our History",
-			"ru": "📜 Наша История",
-			"uz": "📜 Bizning Tarix"
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 34,
-		"fields": {
-			"key": "ABOUT_US_TEAM_BUTTON",
-			"en": "👨‍🏫 Our Team",
-			"ru": "👨‍🏫 Наша Команда",
-			"uz": "👨‍🏫 Bizning Jamoa"
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 35,
-		"fields": {
-			"key": "ABOUT_US_PARTNERS_BUTTON",
-			"en": "🤝 Our Partners",
-			"ru": "🤝 Наши Партнеры",
-			"uz": "🤝 Hamkorlarimiz"
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 36,
-		"fields": {
-			"key": "ABOUT_US_ACHIEVEMENTS_BUTTON",
-			"en": "🏆 Achievements",
-			"ru": "🏆 Достижения",
-			"uz": "🏆 Yutuqlarimiz"
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 37,
-		"fields": {
-			"key": "ABOUT_US_REVIEWS_BUTTON",
-			"en": "🌟 Reviews",
-			"ru": "🌟 Отзывы",
-			"uz": "🌟 Sharhlar"
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 38,
-		"fields": {
-			"key": "ABOUT_US_HISTORY_MESSAGE",
-			"en": "{title}\n\n{content}",
-			"ru": "{title}\n\n{content}",
-			"uz": "{title}\n\n{content}"
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 39,
-		"fields": {
-			"key": "NO_TEAM_MEMBERS",
-			"en": "No team members available yet.",
-			"ru": "Пока нет информации о членах команды.",
-			"uz": "Hozircha jamoa a'zolari mavjud emas."
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 40,
-		"fields": {
-			"key": "NO_PARTNERS",
-			"en": "No partners available yet.",
-			"ru": "Пока нет информации о партнерах.",
-			"uz": "Hozircha hamkorlar mavjud emas."
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 41,
-		"fields": {
-			"key": "NO_ACHIEVEMENTS",
-			"en": "No achievements available yet.",
-			"ru": "Пока нет информации о достижениях.",
-			"uz": "Hozircha yutuqlar mavjud emas."
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 42,
-		"fields": {
-			"key": "NO_REVIEWS",
-			"en": "No reviews available yet.",
-			"ru": "Пока нет отзывов.",
-			"uz": "Hozircha sharhlar mavjud emas."
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 43,
-		"fields": {
-			"key": "TEAM_MEMBER_DETAILS",
-			"en": "*{name}*\n_{position}_\n\n{bio}",
-			"ru": "*{name}*\n_{position}_\n\n{bio}",
-			"uz": "*{name}*\n_{position}_\n\n{bio}"
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 44,
-		"fields": {
-			"key": "PARTNER_DETAILS",
-			"en": "*{name}*\n\n{description}\nWebsite: {website_url}",
-			"ru": "*{name}*\n\n{description}\nВебсайт: {website_url}",
-			"uz": "*{name}*\n\n{description}\nVeb-sayt: {website_url}"
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 45,
-		"fields": {
-			"key": "ACHIEVEMENT_DETAILS",
-			"en": "*{title}*\n{date}\n\n{description}",
-			"ru": "*{title}*\n{date}\n\n{description}",
-			"uz": "*{title}*\n{date}\n\n{description}"
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 46,
-		"fields": {
-			"key": "REVIEW_DETAILS",
-			"en": "🌟🌟🌟🌟🌟 ({rating}/5)\n\n_{review_text}_\n\n*— {author_name}*",
-			"ru": "🌟🌟🌟🌟🌟 ({rating}/5)\n\n_{review_text}_\n\n*— {author_name}*",
-			"uz": "🌟🌟🌟🌟🌟 ({rating}/5)\n\n_{review_text}_\n\n*— {author_name}*"
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 47,
-		"fields": {
-			"key": "FAQ_TITLE",
-			"en": "Frequently Asked Questions:",
-			"ru": "Часто Задаваемые Вопросы:",
-			"uz": "Tez-tez beriladigan savollar:"
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 48,
-		"fields": {
-			"key": "NO_FAQ_ITEMS",
-			"en": "No FAQ items available yet.",
-			"ru": "Пока нет вопросов и ответов.",
-			"uz": "Hozircha FAQ elementlari mavjud emas."
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 49,
-		"fields": {
-			"key": "FAQ_ITEM_DETAILS",
-			"en": "*Q:* {question}\n*A:* {answer}",
-			"ru": "*В:* {question}\n*О:* {answer}",
-			"uz": "*S:* {question}\n*J:* {answer}"
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 50,
-		"fields": {
-			"key": "NEWS_TITLE",
-			"en": "Latest News:",
-			"ru": "Последние Новости:",
-			"uz": "So'nggi Yangiliklar:"
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 51,
-		"fields": {
-			"key": "NO_NEWS_ITEMS",
-			"en": "No news items available yet.",
-			"ru": "Пока нет новостей.",
-			"uz": "Hozircha yangiliklar mavjud emas."
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 52,
-		"fields": {
-			"key": "NEWS_ITEM_DETAILS",
-			"en": "*{title}*\n\n{text}\n\nDate: {published_date}\n[Read more on Telegram]({telegram_link})",
-			"ru": "*{title}*\n\n{text}\n\nДата: {published_date}\n[Читать больше в Telegram]({telegram_link})",
-			"uz": "*{title}*\n\n{text}\n\nSana: {published_date}\n[Telegramda o'qing]({telegram_link})"
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 53,
-		"fields": {
-			"key": "NEWS_ITEM_DETAILS_NO_LINK",
-			"en": "*{title}*\n\n{text}\n\nDate: {published_date}",
-			"ru": "*{title}*\n\n{text}\n\nДата: {published_date}",
-			"uz": "*{title}*\n\n{text}\n\nSana: {published_date}"
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 54,
-		"fields": {
-			"key": "OPEN_LESSONS_TITLE",
-			"en": "Upcoming Open Lessons:",
-			"ru": "Предстоящие Открытые Уроки:",
-			"uz": "Bo'lajak Ochiq Darslar:"
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 55,
-		"fields": {
-			"key": "NO_OPEN_LESSONS",
-			"en": "No upcoming open lessons scheduled yet.",
-			"ru": "Пока нет запланированных открытых уроков.",
-			"uz": "Hozircha rejalashtirilgan ochiq darslar mavjud emas."
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 56,
-		"fields": {
-			"key": "OPEN_LESSON_DETAILS",
-			"en": "*{title}*\nSpeaker: {speaker_name}\nDate: {date}\nTime: {time}\nLocation/Link: {location_or_link}\n\n{description}",
-			"ru": "*{title}*\nСпикер: {speaker_name}\nДата: {date}\nВремя: {time}\nМесто/Ссылка: {location_or_link}\n\n{description}",
-			"uz": "*{title}*\nSpiker: {speaker_name}\nSana: {date}\nVaqt: {time}\nJoy/Havola: {location_or_link}\n\n{description}"
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 57,
-		"fields": {
-			"key": "OPEN_LESSON_DETAILS_NO_SPEAKER",
-			"en": "*{title}*\nDate: {date}\nTime: {time}\nLocation/Link: {location_or_link}\n\n{description}",
-			"ru": "*{title}*\nДата: {date}\nВремя: {time}\nМесто/Ссылка: {location_or_link}\n\n{description}",
-			"uz": "*{title}*\nSana: {date}\nVaqt: {time}\nJoy/Havola: {location_or_link}\n\n{description}"
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 58,
-		"fields": {
-			"key": "CONTACTS_TITLE",
-			"en": "Contact Information:",
-			"ru": "Контактная Информация:",
-			"uz": "Aloqa Ma'lumotlari:"
-		}
-	},
-	{
-		"model": "telegram_bot.bottext",
-		"pk": 59,
-		"fields": {
-			"key": "CONTACTS_MESSAGE",
-			"en": "📍 Address: {address}\n\n📞 Phone: {phone_number}\n✉️ Email: {email}\n🌐 Website: {website_url}\n\n[Open Map]({map_url})\n\nFollow us on:\n[Telegram]({telegram_channel_url})\n[Instagram]({instagram_url})\n[Facebook]({facebook_url})\n[YouTube]({youtube_url})",
-			"ru": "📍 Адрес: {address}\n\n📞 Телефон: {phone_number}\n✉️ Email: {email}\n🌐 Вебсайт: {website_url}\n\n[Открыть на карте]({map_url})\n\nМы в соцсетях:\n[Telegram]({telegram_channel_url})\n[Instagram]({instagram_url})\n[Facebook]({facebook_url})\n[YouTube]({youtube_url})",
-			"uz": "📍 Manzil: {address}\n\n📞 Telefon: {phone_number}\n✉️ Email: {email}\n🌐 Veb-sayt: {website_url}\n\n[Xaritada ochish]({map_url})\n\nBizni ijtimoiy tarmoqlarda kuzating:\n[Telegram]({telegram_channel_url})\n[Instagram]({instagram_url})\n[Facebook]({facebook_url})\n[YouTube]({youtube_url})"
+			"key": "contacts_message_full",
+			"en": "📍 Address: {address}\n\n📞 Phone: {phone_number}\n✉️ Email: {email}\n🌐 Website: {website_url}\n\n[Open on Map]({map_url})\n\nFollow us on social media:\n[Telegram]({telegram_channel_url})\n[Instagram]({instagram_url})\n[Facebook]({facebook_url})\n[YouTube]({youtube_url})",
+			"ru": "📍 Адрес: {address}\n\n📞 Телефон: {phone_number}\n✉️ Email: {email}\n🌐 Вебсайт: {website_url}\n\n[Открыть на карте]({map_url})\n\nМы в соцсетях:\n[Telegram]({telegram_channel_url})\n[Instagram]({instagram_url})\n[Facebook]({facebook_url})\n[YouTube]({youtube_url})"
 		}
 	},
 	{
 		"model": "telegram_bot.bottext",
 		"pk": 60,
 		"fields": {
-			"key": "CONTACTS_MESSAGE_MINIMAL",
+			"key": "contacts_message_minimal",
 			"en": "📞 Phone: {phone_number}\n✉️ Email: {email}",
 			"ru": "📞 Телефон: {phone_number}\n✉️ Email: {email}",
 			"uz": "📞 Telefon: {phone_number}\n✉️ Email: {email}"
@@ -603,7 +72,7 @@
 		"model": "telegram_bot.bottext",
 		"pk": 61,
 		"fields": {
-			"key": "CURRENCY_USD",
+			"key": "currency_usd",
 			"en": "USD",
 			"ru": "USD",
 			"uz": "USD"
@@ -613,7 +82,7 @@
 		"model": "telegram_bot.bottext",
 		"pk": 62,
 		"fields": {
-			"key": "CURRENCY_UZS",
+			"key": "currency_uzs",
 			"en": "UZS",
 			"ru": "UZS",
 			"uz": "UZS"
@@ -623,10 +92,930 @@
 		"model": "telegram_bot.bottext",
 		"pk": 63,
 		"fields": {
-			"key": "DEBUG_ADMIN_MESSAGE",
-			"en": "Admin message: New application from {full_name} for {course_title}.",
-			"ru": "Сообщение для админа: Новая заявка от {full_name} на курс {course_title}.",
-			"uz": "Admin xabari: {full_name} dan {course_title} kursi uchun yangi ariza."
+			"key": "about_us_title",
+			"en": "About EDDAcademy",
+			"ru": "О EDDAcademy",
+			"uz": "EDDAcademy haqida"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 64,
+		"fields": {
+			"key": "achievements_title",
+			"en": "Our Achievements",
+			"ru": "Наши достижения",
+			"uz": "Yutuqlarimiz"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 65,
+		"fields": {
+			"key": "partners_title",
+			"en": "Our Partners",
+			"ru": "Наши партнеры",
+			"uz": "Hamkorlarimiz"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 66,
+		"fields": {
+			"key": "reviews_title",
+			"en": "Student Reviews",
+			"ru": "Отзывы студентов",
+			"uz": "Talaba sharhlari"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 67,
+		"fields": {
+			"key": "team_title",
+			"en": "Our Team",
+			"ru": "Наша команда",
+			"uz": "Jamoamiz"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 68,
+		"fields": {
+			"key": "history_title",
+			"en": "Our History",
+			"ru": "Наша история",
+			"uz": "Tariximiz"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 69,
+		"fields": {
+			"key": "button_main_menu",
+			"en": "🏠 Main Menu",
+			"ru": "🏠 Главное меню",
+			"uz": "🏠 Bosh menyu"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 70,
+		"fields": {
+			"key": "button_back",
+			"en": "⬅️ Back",
+			"ru": "⬅️ Назад",
+			"uz": "⬅️ Orqaga"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 71,
+		"fields": {
+			"key": "back_to_categories",
+			"en": "↩️ Back to Categories",
+			"ru": "↩️ Назад к категориям",
+			"uz": "↩️ Kategoriyalarga qaytish"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 72,
+		"fields": {
+			"key": "no_active_courses",
+			"en": "No active courses available at the moment.",
+			"ru": "На данный момент нет активных курсов.",
+			"uz": "Hozircha faol kurslar mavjud emas."
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 73,
+		"fields": {
+			"key": "course_details",
+			"en": "Course: {title}\nCategory: {category}\n\n{description}\n\nDuration: {duration_months} months\nPrice: {price} {currency}\n\nFeatures:\n{features}\n\nOutline:\n{outline}\n\n[Telegram Chat]({telegram_chat_link})\n{rating_info}",
+			"ru": "Курс: {title}\nКатегория: {category}\n\n{description}\n\nДлительность: {duration_months} месяцев\nЦена: {price} {currency}\n\nОсобенности:\n{features}\n\nПлан:\n{outline}\n\n[Чат в Telegram]({telegram_chat_link})\n{rating_info}",
+			"uz": "Kurs: {title}\nKategoriya: {category}\n\n{description}\n\nDavomiyligi: {duration_months} oy\nNarxi: {price} {currency}\n\nXususiyatlari:\n{features}\n\nReja:\n{outline}\n\n[Telegram Chat]({telegram_chat_link})\n{rating_info}"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 74,
+		"fields": {
+			"key": "no_active_news",
+			"en": "No active news available at the moment.",
+			"ru": "На данный момент нет активных новостей.",
+			"uz": "Hozircha faol yangiliklar mavjud emas."
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 75,
+		"fields": {
+			"key": "news_item_details",
+			"en": "{title}\n\n{description}\n\nDate: {created_at}\n[Read more]({link})",
+			"ru": "{title}\n\n{description}\n\nДата: {created_at}\n[Читать далее]({link})",
+			"uz": "{title}\n\n{description}\n\nSana: {created_at}\n[Batafsil]({link})"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 76,
+		"fields": {
+			"key": "no_active_faq",
+			"en": "No active FAQ items available at the moment.",
+			"ru": "На данный момент нет активных вопросов и ответов.",
+			"uz": "Hozircha faol FAQ mavzulari mavjud emas."
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 77,
+		"fields": {
+			"key": "faq_answer",
+			"en": "Question: {question}\n\nAnswer: {answer}",
+			"ru": "Вопрос: {question}\n\nОтвет: {answer}",
+			"uz": "Savol: {question}\n\nJavob: {answer}"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 78,
+		"fields": {
+			"key": "no_active_open_lessons",
+			"en": "No active open lessons available at the moment.",
+			"ru": "На данный момент нет активных открытых уроков.",
+			"uz": "Hozirча faol ochiq darslar mavjud emas."
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 79,
+		"fields": {
+			"key": "open_lesson_details",
+			"en": "Open Lesson: {title}\nSpeaker: {speaker}\nDate: {lesson_date}\nTime: {start_time}-{end_time}\n\n{description}\n\n[Register here]({registration_link})",
+			"ru": "Открытый урок: {title}\nСпикер: {speaker}\nДата: {lesson_date}\nВремя: {start_time}-{end_time}\n\n{description}\n\n[Зарегистрироваться здесь]({registration_link})",
+			"uz": "Ochiq dars: {title}\nSpiker: {speaker}\nSana: {lesson_date}\nVaqt: {start_time}-{end_time}\n\n{description}\n\n[Bu yerda ro'yxatdan o'ting]({registration_link})"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 80,
+		"fields": {
+			"key": "apply_course_prompt",
+			"en": "Please enter your full name to apply for a course:",
+			"ru": "Пожалуйста, введите ваше полное имя, чтобы записаться на курс:",
+			"uz": "Kursga yozilish uchun to'liq ismingizni kiriting:"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 81,
+		"fields": {
+			"key": "apply_phone_prompt",
+			"en": "Please send your phone number (click the button below):",
+			"ru": "Пожалуйста, отправьте свой номер телефона (нажмите кнопку ниже):",
+			"uz": "Iltimos, telefon raqamingizni yuboring (pastdagi tugmani bosing):"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 82,
+		"fields": {
+			"key": "apply_course_select_prompt",
+			"en": "Which course are you interested in?",
+			"ru": "Какой курс вас интересует?",
+			"uz": "Qaysi курс вас интересует?"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 83,
+		"fields": {
+			"key": "application_confirmation",
+			"en": "Thank you! Your application for {course_title} has been received. We will contact you soon.",
+			"ru": "Спасибо! Ваша заявка на курс «{course_title}» получена. Мы свяжемся с вами в ближайшее время.",
+			"uz": "Rahmat! «{course_title}» kursiga arizangiz qabul qilindi. Tez orada siz bilan bog'lanamiz."
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 84,
+		"fields": {
+			"key": "application_error",
+			"en": "Something went wrong with your application. Please try again later.",
+			"ru": "Что-то пошло не так с вашей заявкой. Пожалуйста, попробуйте еще раз позже.",
+			"uz": "Arizangiz bilan bog'liq muammo yuz berdi. Iltimos, keyinroq qayta urinib ko'ring."
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 85,
+		"fields": {
+			"key": "full_name_invalid",
+			"en": "Invalid full name. Please enter your full name correctly.",
+			"ru": "Неверное полное имя. Пожалуйста, введите ваше полное имя правильно.",
+			"uz": "Noto'g'ri to'liq ism. Iltimos, to'liq ismingizni to'g'ri kiriting."
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 86,
+		"fields": {
+			"key": "phone_number_invalid",
+			"en": "Invalid phone number. Please send your contact using the button or type it manually.",
+			"ru": "Неверный номер телефона. Пожалуйста, отправьте свой контакт с помощью кнопки или введите его вручную.",
+			"uz": "Noto'g'ri telefon raqami. Iltimos, kontaktni tugma orqali yuboring yoki qo'lda kiriting."
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 87,
+		"fields": {
+			"key": "send_phone_button",
+			"en": "Send my phone number",
+			"ru": "Отправить мой номер телефона",
+			"uz": "Telefon raqamimni yuborish"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 88,
+		"fields": {
+			"key": "choose_course_button",
+			"en": "Choose Course",
+			"ru": "Выбрать курс",
+			"uz": "Kursni tanlash"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 89,
+		"fields": {
+			"key": "course_category_button",
+			"en": "Course Categories",
+			"ru": "Категории курсов",
+			"uz": "Kurs kategoriyalari"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 90,
+		"fields": {
+			"key": "apply_button",
+			"en": "Apply",
+			"ru": "Записаться",
+			"uz": "Ariza qoldirish"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 91,
+		"fields": {
+			"key": "schedule_title",
+			"en": "Course Schedule: {course_title}",
+			"ru": "Расписание курса: {course_title}",
+			"uz": "Kurs jadvali: {course_title}"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 92,
+		"fields": {
+			"key": "no_schedule_available",
+			"en": "No schedule available for this course.",
+			"ru": "Расписание для этого курса недоступно.",
+			"uz": "Bu kurs uchun jadval mavjud emas."
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 93,
+		"fields": {
+			"key": "materials_title",
+			"en": "Course Materials: {course_title}",
+			"ru": "Материалы курса: {course_title}",
+			"uz": "Kurs materiallari: {course_title}"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 94,
+		"fields": {
+			"key": "no_materials_available",
+			"en": "No materials available for this course.",
+			"ru": "Материалы для этого курса недоступны.",
+			"uz": "Bu kurs uchun materiallar mavjud emas."
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 95,
+		"fields": {
+			"key": "material_details",
+			"en": "Material: {title}\nType: {type}\n\n{description}\n\n[Download File]({file_url})\n[Open Link]({link_url})",
+			"ru": "Материал: {title}\nТип: {type}\n\n{description}\n\n[Скачать файл]({file_url})\n[Открыть ссылку]({link_url})",
+			"uz": "Material: {title}\n turi: {type}\n\n{description}\n\n[Faylni yuklab olish]({file_url})\n[Havolani ochish]({link_url})"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 96,
+		"fields": {
+			"key": "schedule_button",
+			"en": "Schedule",
+			"ru": "Расписание",
+			"uz": "Jadval"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 97,
+		"fields": {
+			"key": "materials_button",
+			"en": "Materials",
+			"ru": "Материалы",
+			"uz": "Materiallar"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 98,
+		"fields": {
+			"key": "register_button",
+			"en": "Register",
+			"ru": "Регистрация",
+			"uz": "Ro'yxatdan o'tish"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 99,
+		"fields": {
+			"key": "view_all_news_button",
+			"en": "View All News",
+			"ru": "Посмотреть все новости",
+			"uz": "Barcha yangiliklarni ko'rish"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 100,
+		"fields": {
+			"key": "view_all_faq_button",
+			"ru": "Посмотреть все FAQ",
+			"uz": "Barcha FAQni ko'rish",
+			"en": "View All FAQ"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 101,
+		"fields": {
+			"key": "view_all_open_lessons_button",
+			"en": "View All Open Lessons",
+			"ru": "Посмотреть все открытые уроки",
+			"uz": "Barcha ochiq darslarni ko'rish"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 102,
+		"fields": {
+			"key": "open_lesson_info",
+			"en": "Date: {lesson_date}\nTime: {start_time}-{end_time}\nSpeaker: {speaker_name}",
+			"ru": "Дата: {lesson_date}\nВремя: {start_time}-{end_time}\nСпикер: {speaker_name}",
+			"uz": "Sana: {lesson_date}\nVaqt: {start_time}-{end_time}\nSpiker: {speaker_name}"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 103,
+		"fields": {
+			"key": "more_details_button",
+			"en": "More Details",
+			"ru": "Подробнее",
+			"uz": "Batafsil"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 104,
+		"fields": {
+			"key": "back_to_open_lessons",
+			"en": "⬅️ Back to Open Lessons",
+			"ru": "⬅️ Назад к Открытым урокам",
+			"uz": "⬅️ Ochiq darslarga qaytish"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 105,
+		"fields": {
+			"key": "back_to_news",
+			"en": "⬅️ Back to News",
+			"ru": "⬅️ Назад к Новостям",
+			"uz": "⬅️ Yangiliklarga qaytish"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 106,
+		"fields": {
+			"key": "back_to_faq",
+			"en": "⬅️ Back to FAQ",
+			"ru": "⬅️ Назад к FAQ",
+			"uz": "⬅️ FAQga qaytish"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 107,
+		"fields": {
+			"key": "choose_language_button",
+			"en": "🌐 Change Language",
+			"ru": "🌐 Сменить язык",
+			"uz": "🌐 Tilni o'zgartirish"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 108,
+		"fields": {
+			"key": "apply_course_cancel",
+			"en": "Application cancelled.",
+			"ru": "Заявка отменена.",
+			"uz": "Ariza bekor qilindi."
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 109,
+		"fields": {
+			"key": "cancel_button",
+			"en": "❌ Cancel",
+			"ru": "❌ Отмена",
+			"uz": "❌ Bekor qilish"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 110,
+		"fields": {
+			"key": "current_language",
+			"en": "Current language: English",
+			"ru": "Текущий язык: Русский",
+			"uz": "Hozirgi til: O'zbek"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 111,
+		"fields": {
+			"key": "invalid_input",
+			"en": "Invalid input. Please try again.",
+			"ru": "Неверный ввод. Пожалуйста, попробуйте еще раз.",
+			"uz": "Noto'g'ri kiritish. Iltimos, qayta urinib ko'ring."
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 112,
+		"fields": {
+			"key": "news_button",
+			"en": "📰 News",
+			"ru": "📰 Новости",
+			"uz": "📰 Yangiliklar"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 113,
+		"fields": {
+			"key": "courses_button",
+			"en": "📚 Courses",
+			"ru": "📚 Курсы",
+			"uz": "📚 Kurslar"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 114,
+		"fields": {
+			"key": "open_lessons_button",
+			"en": "💡 Open Lessons",
+			"ru": "💡 Открытые уроки",
+			"uz": "💡 Ochiq darslar"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 115,
+		"fields": {
+			"key": "apply_course_button",
+			"en": "📝 Apply for Course",
+			"ru": "📝 Записаться на курс",
+			"uz": "📝 Kursga yozilish"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 116,
+		"fields": {
+			"key": "for_students_button",
+			"en": "🎓 For Students",
+			"ru": "🎓 Для студентов",
+			"uz": "🎓 Talabalar uchun"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 117,
+		"fields": {
+			"key": "about_us_button",
+			"en": "ℹ️ About Us",
+			"ru": "ℹ️ О нас",
+			"uz": "ℹ️ Biz haqimizda"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 118,
+		"fields": {
+			"key": "faq_button",
+			"en": "❓ FAQ",
+			"ru": "❓ FAQ",
+			"uz": "❓ FAQ"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 119,
+		"fields": {
+			"key": "contact_us_button",
+			"en": "📞 Contact Us",
+			"ru": "📞 Связаться с нами",
+			"uz": "📞 Bog'lanish"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 120,
+		"fields": {
+			"key": "change_language_button",
+			"en": "🌐 Change Language",
+			"ru": "🌐 Сменить язык",
+			"uz": "🌐 Tilni o'zgartirish"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 121,
+		"fields": {
+			"key": "main_menu_placeholder",
+			"en": "Choose an option from the menu",
+			"ru": "Выберите опцию из меню",
+			"uz": "Menyudan variantni tanlang"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 122,
+		"fields": {
+			"key": "back_to_main_menu",
+			"en": "⬅️ Back to Main Menu",
+			"ru": "⬅️ Назад в Главное меню",
+			"uz": "⬅️ Bosh menyuga qaytish"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 123,
+		"fields": {
+			"key": "back_to_categories_button",
+			"en": "↩️ Back to Categories",
+			"ru": "↩️ Назад к категориям",
+			"uz": "↩️ Kategoriyalarga qaytish"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 124,
+		"fields": {
+			"key": "back_to_courses_button",
+			"en": "⬅️ Back to Courses",
+			"ru": "⬅️ Назад к курсам",
+			"uz": "⬅️ Kurslarga qaytish"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 125,
+		"fields": {
+			"key": "back_to_faq_list_button",
+			"en": "⬅️ Back to FAQ List",
+			"ru": "⬅️ Назад к списку FAQ",
+			"uz": "⬅️ FAQ ro'yxatiga qaytish"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 126,
+		"fields": {
+			"key": "back_to_student_menu_button",
+			"en": "⬅️ Back to Student Menu",
+			"ru": "⬅️ Назад в меню студента",
+			"uz": "⬅️ Talaba menyusiga qaytish"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 127,
+		"fields": {
+			"key": "language_selection_prompt",
+			"en": "Please choose your preferred language:",
+			"ru": "Пожалуйста, выберите предпочитаемый язык:",
+			"uz": "Iltimos, o'zingizga qulay tilni tanlang:"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 128,
+		"fields": {
+			"key": "unknown_command",
+			"en": "Sorry, I don't understand that command. Please use the menu buttons.",
+			"ru": "Извините, я не понимаю эту команду. Пожалуйста, используйте кнопки меню.",
+			"uz": "Kechirasiz, men bu buyruqni tushunmayapman. Iltimos, menyu tugmalaridan foydalaning."
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 129,
+		"fields": {
+			"key": "faq_not_found",
+			"en": "FAQ item not found or is no longer available.",
+			"ru": "Элемент FAQ не найден или больше недоступен.",
+			"uz": "FAQ elementi topilmadi yoki mavjud emas."
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 130,
+		"fields": {
+			"key": "welcome_new_user",
+			"en": "Welcome! I'm EDD Academy assistant bot. How can I help you today?",
+			"ru": "Добро пожаловать! Я бот-помощник EDD Academy. Чем могу помочь сегодня?",
+			"uz": "Xush kelibsiz! Men EDD Academy yordamchi botiman. Bugun sizga qanday yordam bera olaman?"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 131,
+		"fields": {
+			"key": "welcome_back_user",
+			"en": "Welcome back! Glad to see you again. How can I assist you today?",
+			"ru": "С возвращением! Рад вас снова видеть. Чем могу помочь сегодня?",
+			"uz": "Qaytganingiz bilan! Sizni yana ko'rganimdan xursandman. Bugun sizga qanday yordam bera olaman?"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 132,
+		"fields": {
+			"key": "category_programming",
+			"en": "Programming",
+			"ru": "Программирование",
+			"uz": "Dasturlash"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 133,
+		"fields": {
+			"key": "category_robotics",
+			"en": "Robotics",
+			"ru": "Робототехника",
+			"uz": "Robototexnika"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 134,
+		"fields": {
+			"key": "category_design",
+			"en": "Design",
+			"ru": "Дизайн",
+			"uz": "Dizayn"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 135,
+		"fields": {
+			"key": "category_architecture",
+			"en": "Architecture",
+			"ru": "Архитектура",
+			"uz": "Arxitektura"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 136,
+		"fields": {
+			"key": "category_languages",
+			"en": "Languages",
+			"ru": "Языки",
+			"uz": "Tillar"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 137,
+		"fields": {
+			"key": "category_other",
+			"en": "Other",
+			"ru": "Прочие",
+			"uz": "Boshqalar"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 138,
+		"fields": {
+			"key": "select_category_message",
+			"en": "Please select a course category:",
+			"ru": "Пожалуйста, выберите категорию курса:",
+			"uz": "Iltimos, kurs kategoriyasini tanlang:"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 139,
+		"fields": {
+			"key": "no_courses_in_category",
+			"en": "No active courses found in this category.",
+			"ru": "В этой категории нет активных курсов.",
+			"uz": "Bu kategoriyada faol kurslar topilmadi."
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 140,
+		"fields": {
+			"key": "course_rating_placeholder",
+			"en": "Rating: Not yet rated",
+			"ru": "Рейтинг: Еще не оценено",
+			"uz": "Reyting: Hali baholanmagan"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 141,
+		"fields": {
+			"key": "course_rating_format",
+			"en": "Rating: {rating} ({votes} votes)",
+			"ru": "Рейтинг: {rating} ({votes} голосов)",
+			"uz": "Reyting: {rating} ({votes} ovoz)"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 142,
+		"fields": {
+			"key": "enroll_full_name_prompt",
+			"en": "Please enter your full name (e.g., John Doe):",
+			"ru": "Пожалуйста, введите ваше полное имя (например, Иван Иванов):",
+			"uz": "Iltimos, to'liq ismingizni kiriting (masalan, Ali Aliyev):"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 143,
+		"fields": {
+			"key": "enroll_email_prompt",
+			"en": "Please enter your email (optional):",
+			"ru": "Пожалуйста, введите ваш email (необязательно):",
+			"uz": "Iltimos, emailingizni kiriting (ixtiyoriy):"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 144,
+		"fields": {
+			"key": "enroll_contact_prompt",
+			"en": "Please share your phone number using the button below or type it manually:",
+			"ru": "Пожалуйста, поделитесь своим номером телефона с помощью кнопки ниже или введите его вручную:",
+			"uz": "Iltimos, telefon raqamingizni pastdagi tugma orqali ulashing yoki qo'lda kiriting:"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 145,
+		"fields": {
+			"key": "enroll_success",
+			"en": "Thank you for your application for the '{course_title}' course! We will contact you shortly.",
+			"ru": "Спасибо за вашу заявку на курс «{course_title}»! Мы свяжемся с вами в ближайшее время.",
+			"uz": "Sizning '{course_title}' kursi uchun arizangiz qabul qilindi! Tez orada siz bilan bog'lanamiz."
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 146,
+		"fields": {
+			"key": "enroll_invalid_name",
+			"en": "Invalid name. Please enter a valid full name.",
+			"ru": "Неверное имя. Пожалуйста, введите корректное полное имя.",
+			"uz": "Noto'g'ri ism. Iltimos, to'g'ri to'liq ism kiriting."
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 147,
+		"fields": {
+			"key": "enroll_invalid_email",
+			"en": "Invalid email format. Please enter a valid email or type /skip to skip.",
+			"ru": "Неверный формат email. Пожалуйста, введите корректный email или введите /skip, чтобы пропустить.",
+			"uz": "Noto'g'ri email formati. Iltimos, to'g'ri email kiriting yoki o'tkazib yuborish uchun /skip yozing."
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 148,
+		"fields": {
+			"key": "enroll_invalid_phone",
+			"en": "Invalid phone number. Please use the 'Share Contact' button or enter a valid phone number.",
+			"ru": "Неверный номер телефона. Пожалуйста, используйте кнопку «Поделиться контактом» или введите корректный номер.",
+			"uz": "Noto'g'ri telefon raqami. Iltimos, 'Kontaktni ulashish' tugmasidan foydalaning yoki to'g'ri telefon raqamini kiriting."
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 149,
+		"fields": {
+			"key": "enroll_cancel_message",
+			"en": "Course application cancelled. You can apply again anytime.",
+			"ru": "Заявка на курс отменена. Вы можете подать заявку снова в любое время.",
+			"uz": "Kursga ariza bekor qilindi. Istalgan vaqtda qayta ariza topshirishingiz mumkin."
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 150,
+		"fields": {
+			"key": "skip_button",
+			"en": "Skip",
+			"ru": "Пропустить",
+			"uz": "O'tkazib yuborish"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 151,
+		"fields": {
+			"key": "back_to_course_details",
+			"en": "⬅️ Back to Course Details",
+			"ru": "⬅️ Назад к Деталям курса",
+			"uz": "⬅️ Kurs tafsilotlariga qaytish"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 152,
+		"fields": {
+			"key": "select_course_category",
+			"en": "Please select a course category:",
+			"ru": "Пожалуйста, выберите категорию курса:",
+			"uz": "Iltimos, kurs kategoriyasini tanlang:"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 153,
+		"fields": {
+			"key": "course_price_with_discount",
+			"en": "Price: {original_price} {currency} (Discounted: {discounted_price} {currency})",
+			"ru": "Цена: {original_price} {currency} (Со скидкой: {discounted_price} {currency})",
+			"uz": "Narxi: {original_price} {currency} (Chegirmada: {discounted_price} {currency})"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 154,
+		"fields": {
+			"key": "welcome_new_user",
+			"en": "Welcome! I'm EDD Academy assistant bot. How can I help you today?",
+			"ru": "Добро пожаловать! Я бот-помощник EDD Academy. Чем могу помочь сегодня?",
+			"uz": "Xush kelibsiz! Men EDD Academy yordamchi botiman. Bugun sizga qanday yordam bera olaman?"
+		}
+	},
+	{
+		"model": "telegram_bot.bottext",
+		"pk": 155,
+		"fields": {
+			"key": "welcome_back_user",
+			"en": "Welcome back! Glad to see you again. How can I assist you today?",
+			"ru": "С возвращением! Рад вас снова видеть. Чем могу помочь сегодня?",
+			"uz": "Qaytganingiz bilan! Sizni yana ko'rganimdan xursandman. Bugun sizga qanday yordam bera olaman?"
 		}
 	}
 ]

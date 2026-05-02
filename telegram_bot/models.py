@@ -20,7 +20,7 @@ class TelegramUser(models.Model):
     )
     language_code = models.CharField(
         max_length=10,
-        default='en',
+        default='ru',
         null=True, blank=True,
         verbose_name=_("Language Code")
     )
@@ -29,6 +29,9 @@ class TelegramUser(models.Model):
     )
     is_admin = models.BooleanField(
         default=False, verbose_name=_("Is Admin")
+    )
+    is_blocked = models.BooleanField(
+        default=False, verbose_name=_("Is Blocked by User")
     )
     created_at = models.DateTimeField(
         auto_now_add=True, verbose_name=_("Created At")
@@ -154,6 +157,19 @@ class Course(models.Model):
         verbose_name=_("Discount Percentage"),
         help_text=_("Percentage discount (e.g., 10.00 for 10%)"),
         validators=[MinValueValidator(0.00), MaxValueValidator(100.00)]
+    )
+    speaker = models.ForeignKey(
+        'Speaker',
+        on_delete=models.SET_NULL,
+        null=True, blank=True,
+        related_name='courses_taught',
+        verbose_name=_("Main Speaker")
+    )
+    rating = models.DecimalField(
+        max_digits=3, decimal_places=2,
+        null=True, blank=True,
+        validators=[MinValueValidator(0), MaxValueValidator(5)],
+        verbose_name=_("Rating")
     )
     is_active = models.BooleanField(
         default=True, verbose_name=_("Is Active")
@@ -457,6 +473,11 @@ class OpenLesson(models.Model):
         related_name='open_lessons',
         verbose_name=_("Speaker")
     )
+    online_meeting_url = models.URLField(
+        max_length=500, null=True, blank=True,
+        verbose_name=_("Online Meeting URL"),
+        help_text=_("Link to the online meeting (e.g., Zoom, Google Meet).")
+    )
     location_or_link = models.CharField(
         max_length=500,
         null=True, blank=True,
@@ -515,6 +536,14 @@ class Student(models.Model):
     enrollment_date = models.DateField(
         auto_now_add=True, verbose_name=_("Enrollment Date")
     )
+    enrolled_courses = models.ManyToManyField(
+        Course, blank=True,
+        related_name='student_course_enrollments',
+        verbose_name=_("Enrolled Courses"),
+        help_text=_(
+            "Courses that the student is currently enrolled in or has completed."
+            )
+    )
     created_at = models.DateTimeField(
         auto_now_add=True, verbose_name=_("Created At")
     )
@@ -562,6 +591,12 @@ class Grade(models.Model):
         verbose_name=_("Score"),
         validators=[MinValueValidator(0.00)]
     )
+    graded_by = models.ForeignKey(
+        'TelegramUser', on_delete=models.SET_NULL,
+        null=True, blank=True,
+        related_name='given_grades',
+        verbose_name=_("Graded By")
+        )
     grade_date = models.DateField(verbose_name=_("Grade Date"))
     notes = models.TextField(
         blank=True, null=True,
@@ -669,6 +704,7 @@ class CourseMaterial(models.Model):
         max_length=500, verbose_name=_("URL"),
         help_text=_("Link to the external material (e.g., Google Drive, Yandex Disk).")
     )
+    order = models.IntegerField(default=0, verbose_name=_("Order"))
 
     def __str__(self):
         return f"{self.course.get_localized_title('en')} - {self.get_localized_title('en')}"

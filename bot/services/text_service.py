@@ -21,7 +21,6 @@ class TextService:
         """
 
         try:
-            # Очищаем кэш перед загрузкой
             self.texts.clear()
 
             bot_texts = BotText.objects.all()
@@ -32,9 +31,9 @@ class TextService:
                     'uz': text_obj.uz,
                 }
             self.is_loaded = True
-            logger.info("Bot texts loaded successfully from database.")
+            logger.info("Тексты бота успешно загружены из базы данных.")
         except Exception as e:
-            logger.error(f"Failed to load bot texts from database: {e}")
+            logger.error(f"Не удалось загрузить тексты бота из базы данных: {e}")
             self.is_loaded = False
 
     async def get_text(self, key: str, lang_code: str, **kwargs) -> str:
@@ -45,43 +44,40 @@ class TextService:
 
         if not self.is_loaded:
             await self._load_texts_from_db()
-            if not self.is_loaded:  # Если загрузка всё равно не удалась
+            if not self.is_loaded:
                 logger.warning(
-                    f"Texts not loaded. Returning fallback for key '{key}'"
+                    f"Тексты не загружаются. Возвращение обратного хода для ключа '{key}'"
                     )
-                return f"Text for key '{key}' not found or loading failed."
+                return f"Текст для ключа '{key}' не найден или загрузка не удалась."
 
         text_data = self.texts.get(key)
         if not text_data:
-            logger.warning(f"Text key '{key}' not found in loaded texts.")
-            return f"Text for key '{key}' not found."
+            logger.warning(f"Текстовый ключ '{key}' не найден в загруженных текстах.")
+            return f"Текст для ключа '{key}' не найден."
 
         text = text_data.get(lang_code)
         if not text:
-            # Fallback к английскому, если перевода на нужный язык нет
             text = text_data.get(
-                'en', f"Text for key '{key}' not found for '{lang_code}'."
+                'en', f"Текст для ключа '{key}' не найден для '{lang_code}'."
                 )
             logger.warning(
-                f"No translation for key '{key}' in '{
-                    lang_code}', falling back to English."
+                f"Нет перевода для ключа '{key}' в '{lang_code}', возвращаемся к английскому"
                 )
 
-        # Форматирование текста с помощью kwargs
         try:
             return text.format(**kwargs)
         except KeyError as e:
             logger.error(
-                f"Missing placeholder '{e}' in text for key '{key}' ({
+                f"Отсутствует заполнитель '{e}' в тексте для ключа '{key}' ({
                     lang_code}). Text: '{text}'"
                 )
-            return text + f" (Formatting error: Missing '{e}')"
+            return text + f" (Ошибка форматирования: Отсутствует '{e}')"
         except Exception as e:
             logger.error(
-                f"Error formatting text for key '{key}' ({
+                f"Ошибка форматирования текста для ключа '{key}' ({
                     lang_code}): {e}. Text: '{text}'"
                 )
-            return text + f" (Formatting error: {e})"
+            return text + f" (Ошибка форматирования: {e})"
 
     @sync_to_async
     def get_all_translations(self, key: str) -> List[str]:
@@ -92,10 +88,9 @@ class TextService:
 
         text_data = self.texts.get(key)
         if not text_data:
-            logger.warning(f"No translations found for key '{key}'.")
+            logger.warning(f"Для ключа не найдено ни одного перевода '{key}'.")
             return []
 
-        # Возвращаем список значений из словаря переводов для данного ключа
         return list(text_data.values())
 
 

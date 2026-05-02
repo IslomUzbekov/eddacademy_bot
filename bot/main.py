@@ -10,13 +10,19 @@ from aiogram.types import BotCommand
 from bot.bot_instance import bot, dp
 
 # Импортируем все роутеры (хэндлеры)
-from bot.handlers import admin, common, courses, faq, registration
-from bot.services.application_service import application_service
-from bot.services.course_service import course_service
-from bot.services.faq_service import faq_service
-from bot.services.text_service import text_service
+from bot.handlers import (
+    admin,
+    common,
+    courses,
+    # faq,
+    # registration,
+)
 
-# Импортируем ИНИЦИАЛИЗИРОВАННЫЕ ЭКЗЕМПЛЯРЫ наших сервисов
+# from bot.services.application_service import application_service
+from bot.services.course_service import course_service
+
+# from bot.services.faq_service import faq_service
+from bot.services.text_service import text_service
 from bot.services.user_service import user_service
 
 # Настройка Django окружения
@@ -32,7 +38,6 @@ async def set_default_commands(bot_instance: Bot):
     commands = [
         BotCommand(command="start", description="Start the bot"),
         BotCommand(command="menu", description="Show main menu"),
-        BotCommand(command="courses", description="View our courses"),
         BotCommand(command="faq", description="Frequently asked questions"),
         BotCommand(command="help", description="Get help"),
     ]
@@ -65,15 +70,15 @@ def setup_routers(dispatcher: Dispatcher):
     (первый зарегистрированный имеет приоритет).
     """
 
-    # Общие хэндлеры (start, help, menu, выбор языка)
-    dispatcher.include_router(common.router)
     # Хэндлеры для курсов и записи
     dispatcher.include_router(courses.router)
-    dispatcher.include_router(registration.router)
+    # dispatcher.include_router(registration.router)
     # Хэндлеры для FAQ
-    dispatcher.include_router(faq.router)
+    # dispatcher.include_router(faq.router)
     # Админ-хэндлеры (если есть)
     dispatcher.include_router(admin.router)
+    # Общие хэндлеры (start, help, menu, выбор языка)
+    dispatcher.include_router(common.router)
 
 
 def main():
@@ -84,8 +89,8 @@ def main():
     dp.workflow_data.update({
         "user_service": user_service,
         "course_service": course_service,
-        "application_service": application_service,
-        "faq_service": faq_service,
+        # "application_service": application_service,
+        # "faq_service": faq_service,
         "text_service": text_service,
     })
 

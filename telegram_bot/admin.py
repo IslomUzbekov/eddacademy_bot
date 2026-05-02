@@ -51,222 +51,170 @@ class CourseAdmin(admin.ModelAdmin):
     list_display = (
         'title_en',
         'category',
-        'duration_months',
         'price',
         'discount_percentage',
-        'get_final_price_display',
         'is_active',
         'created_at'
     )
-    list_filter = ('is_active', 'category')
+    list_filter = ('is_active', 'category', 'speaker',)
+    list_editable = ('price', 'discount_percentage', 'is_active',)
     search_fields = (
-        'title_en', 'description_en',
-        'title_ru', 'description_ru',
-        'title_uz', 'description_uz'
+        'title_en', 'title_ru', 'title_uz',
+        'description_en', 'description_ru', 'description_uz'
     )
-    ordering = ('title_en',)
+    readonly_fields = ('created_at', 'updated_at',)
     fieldsets = (
-        (_("English Content"), {
-            'fields': ('title_en', 'description_en')
-        }),
-        (_("Russian Content"), {
-            'fields': ('title_ru', 'description_ru'),
-            'classes': ('collapse',),
-        }),
-        (_("Uzbek Content"), {
-            'fields': ('title_uz', 'description_uz'),
-            'classes': ('collapse',),
-        }),
-        (_("Course Details"), {
+        (None, {
             'fields': (
                 'category',
-                'duration_months',
+                'speaker',
+                'image',
                 'price',
                 'discount_percentage',
-                'image',
+                'rating',
+                'duration_months',
                 'is_active'
             )
         }),
+        (_("Localized Titles"), {
+            'fields': ('title_en', 'title_ru', 'title_uz',),
+            'classes': ('collapse',),
+        }),
+        (_("Localized Descriptions"), {
+            'fields': ('description_en', 'description_ru', 'description_uz',),
+            'classes': ('collapse',),
+        }),
+        (None, {
+            'fields': ('created_at', 'updated_at',)
+        }),
     )
-
-    def get_final_price_display(self, obj):
-        return f"{obj.get_final_price():.2f}"
-    get_final_price_display.short_description = _("Final Price")
-    get_final_price_display.admin_order_field = 'price'
+    ordering = ('title_en',)
 
 
 # --- CourseCategory Admin ---
 @admin.register(CourseCategory)
 class CourseCategoryAdmin(admin.ModelAdmin):
-    list_display = (
-        'name_en', 'name_ru', 'name_uz',
-        'slug', 'is_active', 'order'
-    )
-    search_fields = ('name_en', 'name_ru', 'name_uz', 'slug')
+    list_display = ('name_en', 'name_ru', 'name_uz', 'slug', 'is_active', 'order',)
     list_filter = ('is_active',)
+    list_editable = ('is_active', 'order',)
+    search_fields = ('name_en', 'name_ru', 'name_uz', 'description_en', 'description_ru', 'description_uz',)
     prepopulated_fields = {'slug': ('name_en',)}
-    ordering = ('order',)
-    fieldsets = (
-        (_("English Content"), {
-            'fields': ('name_en', 'description_en')
-        }),
-        (_("Russian Content"), {
-            'fields': ('name_ru', 'description_ru'),
-            'classes': ('collapse',),
-        }),
-        (_("Uzbek Content"), {
-            'fields': ('name_uz', 'description_uz'),
-            'classes': ('collapse',),
-        }),
-        (_("Settings"), {
-            'fields': ('slug', 'is_active', 'order')
-        }),
-    )
-
-
-# --- StudentApplication Admin ---
-@admin.register(StudentApplication)
-class StudentApplicationAdmin(admin.ModelAdmin):
-    list_display = (
-        'full_name',
-        'phone_number',
-        'email',
-        'course',
-        'status',
-        'applied_at'
-    )
-    list_filter = ('status', 'course', 'applied_at')
-    search_fields = (
-        'full_name',
-        'phone_number',
-        'email',
-        'admin_notes',
-        'telegram_user__username',
-        'course__title_en'
-    )
-    readonly_fields = ('telegram_user', 'applied_at', 'updated_at')
     fieldsets = (
         (None, {
-            'fields': (
-                'telegram_user',
-                'full_name',
-                'phone_number',
-                'email',
-                'course',
-                'status'
-            )
+            'fields': ('name_en', 'slug', 'is_active', 'order',)
         }),
-        (_("Admin Information"), {
-            'fields': ('admin_notes',),
-            'classes': ('collapse',)
+        (_("Localized Names"), {
+            'fields': ('name_ru', 'name_uz',),
+            'classes': ('collapse',),
         }),
-        (_("Timestamps"), {
-            'fields': ('applied_at', 'updated_at'),
-            'classes': ('collapse',)
+        (_("Localized Descriptions"), {
+            'fields': ('description_en', 'description_ru', 'description_uz',),
+            'classes': ('collapse',),
         }),
     )
-    ordering = ('-applied_at',)
+    ordering = ('order',)
 
 
 # --- FAQItem Admin ---
 @admin.register(FAQItem)
 class FAQItemAdmin(admin.ModelAdmin):
-    list_display = ('question_en', 'order', 'is_active', 'created_at')
+    list_display = ('question_en', 'is_active', 'order', 'created_at',)
     list_filter = ('is_active',)
+    list_editable = ('is_active', 'order',)
     search_fields = (
         'question_en', 'answer_en',
         'question_ru', 'answer_ru',
         'question_uz', 'answer_uz'
     )
-    ordering = ('order', 'question_en')
+    readonly_fields = ('created_at', 'updated_at',)
     fieldsets = (
-        (_("English Content"), {
-            'fields': ('question_en', 'answer_en')
-        }),
-        (_("Russian Content"), {
-            'fields': ('question_ru', 'answer_ru'),
-            'classes': ('collapse',),
-        }),
-        (_("Uzbek Content"), {
-            'fields': ('question_uz', 'answer_uz'),
-            'classes': ('collapse',),
-        }),
         (None, {
             'fields': ('order', 'is_active')
         }),
+        (_("Question and Answer (English)"), {
+            'fields': ('question_en', 'answer_en',)
+        }),
+        (_("Question and Answer (Russian)"), {
+            'fields': ('question_ru', 'answer_ru',),
+            'classes': ('collapse',),
+        }),
+        (_("Question and Answer (Uzbek)"), {
+            'fields': ('question_uz', 'answer_uz',),
+            'classes': ('collapse',),
+        }),
+        (None, {
+            'fields': ('created_at', 'updated_at',)
+        }),
     )
+    ordering = ('order',)
 
 
 # --- BotText Admin ---
 @admin.register(BotText)
 class BotTextAdmin(admin.ModelAdmin):
-    list_display = ('key', 'en', 'ru', 'uz')
-    search_fields = ('key', 'en', 'ru', 'uz')
-    # Используем fieldsets для лучшей организации
+    list_display = ('key', 'en', 'ru', 'uz',)
+    search_fields = ('key', 'en', 'ru', 'uz',)
     fieldsets = (
         (None, {
             'fields': ('key',)
         }),
         (_("Localized Texts"), {
-            'fields': ('en', 'ru', 'uz')
+            'fields': ('en', 'ru', 'uz',),
         }),
     )
+    ordering = ('key',)
 
 
 # --- NewsItem Admin ---
 @admin.register(NewsItem)
 class NewsItemAdmin(admin.ModelAdmin):
-    list_display = ('title_en', 'published_date', 'is_active', 'created_at')
-    list_filter = ('is_active', 'published_date')
+    list_display = ('title_en', 'published_date', 'is_active', 'created_at',)
+    list_filter = ('is_active',)
     search_fields = (
         'title_en', 'text_en',
         'title_ru', 'text_ru',
         'title_uz', 'text_uz'
     )
-    ordering = ('-published_date',)
+    readonly_fields = ('created_at', 'updated_at',)
     fieldsets = (
-        (_("English Content"), {
-            'fields': ('title_en', 'text_en', 'image')
+        (None, {
+            'fields': ('image', 'telegram_channel_link', 'published_date', 'is_active')
         }),
-        (_("Russian Content"), {
-            'fields': ('title_ru', 'text_ru'),
+        (_("Localized Titles"), {
+            'fields': ('title_en', 'title_ru', 'title_uz'),
             'classes': ('collapse',),
         }),
-        (_("Uzbek Content"), {
-            'fields': ('title_uz', 'text_uz'),
+        (_("Localized Texts"), {
+            'fields': ('text_en', 'text_ru', 'text_uz'),
             'classes': ('collapse',),
         }),
-        (_("Additional Info"), {
-            'fields': ('telegram_channel_link', 'published_date', 'is_active')
+        (None, {
+            'fields': ('created_at', 'updated_at',)
         }),
     )
+    ordering = ('-published_date',)
 
 
 # --- Speaker Admin ---
 @admin.register(Speaker)
 class SpeakerAdmin(admin.ModelAdmin):
-    list_display = ('name_en', 'bio_en', 'is_active')
+    list_display = ('name_en', 'name_ru', 'name_uz', 'is_active',)
     list_filter = ('is_active',)
-    search_fields = (
-        'name_en', 'bio_en', 'name_ru', 'bio_ru', 'name_uz', 'bio_uz'
-        )
-    ordering = ('name_en',)
+    search_fields = ('name_en', 'name_ru', 'name_uz', 'bio_en', 'bio_ru', 'bio_uz',)
     fieldsets = (
-        (_("English Content"), {
-            'fields': ('name_en', 'bio_en')
-        }),
-        (_("Russian Content"), {
-            'fields': ('name_ru', 'bio_ru'),
-            'classes': ('collapse',),
-        }),
-        (_("Uzbek Content"), {
-            'fields': ('name_uz', 'bio_uz'),
-            'classes': ('collapse',),
-        }),
         (None, {
             'fields': ('photo', 'is_active')
         }),
+        (_("Localized Names"), {
+            'fields': ('name_en', 'name_ru', 'name_uz'),
+            'classes': ('collapse',),
+        }),
+        (_("Localized Bios"), {
+            'fields': ('bio_en', 'bio_ru', 'bio_uz'),
+            'classes': ('collapse',),
+        }),
     )
+    ordering = ('name_en',)
 
 
 # --- OpenLesson Admin ---
@@ -280,36 +228,39 @@ class OpenLessonAdmin(admin.ModelAdmin):
         'is_active',
         'created_at'
     )
-    list_filter = ('is_active', 'lesson_date', 'speaker')
+    list_filter = ('is_active', 'speaker',)
     search_fields = (
-        'title_en', 'description_en', 'location_or_link',
+        'title_en', 'description_en',
         'title_ru', 'description_ru',
         'title_uz', 'description_uz',
-        'speaker__name_en'
+        'location_or_link'
     )
-    ordering = ('lesson_date', 'start_time')
+    readonly_fields = ('created_at', 'updated_at',)
     fieldsets = (
-        (_("English Content"), {
-            'fields': ('title_en', 'description_en')
-        }),
-        (_("Russian Content"), {
-            'fields': ('title_ru', 'description_ru'),
-            'classes': ('collapse',),
-        }),
-        (_("Uzbek Content"), {
-            'fields': ('title_uz', 'description_uz'),
-            'classes': ('collapse',),
-        }),
-        (_("Lesson Details"), {
+        (None, {
             'fields': (
-                'lesson_date',
-                ('start_time', 'end_time'),
                 'speaker',
+                'lesson_date',
+                'start_time',
+                'end_time',
+                'online_meeting_url',
                 'location_or_link',
                 'is_active'
             )
         }),
+        (_("Localized Titles"), {
+            'fields': ('title_en', 'title_ru', 'title_uz'),
+            'classes': ('collapse',),
+        }),
+        (_("Localized Descriptions"), {
+            'fields': ('description_en', 'description_ru', 'description_uz'),
+            'classes': ('collapse',),
+        }),
+        (None, {
+            'fields': ('created_at', 'updated_at',)
+        }),
     )
+    ordering = ('lesson_date', 'start_time',)
 
 
 # --- Student Admin ---
@@ -318,20 +269,14 @@ class StudentAdmin(admin.ModelAdmin):
     list_display = (
         'full_name',
         'student_id_number',
-        'get_telegram_username',
+        'telegram_user',
         'is_active',
         'enrollment_date'
-        )
-    list_filter = ('is_active', 'enrollment_date', 'courses')
-    search_fields = (
-        'full_name',
-        'student_id_number',
-        'telegram_user__username',
-        'telegram_user__user_id'
-        )
-    raw_id_fields = ('telegram_user',)
-    filter_horizontal = ('courses',)
-    ordering = ('full_name',)
+    )
+    list_filter = ('is_active', 'enrollment_date',)
+    search_fields = ('full_name', 'student_id_number', 'telegram_user__username', 'telegram_user__user_id',)
+    filter_horizontal = ('enrolled_courses',) # Для удобного выбора курсов
+    readonly_fields = ('enrollment_date', 'created_at', 'updated_at',)
     fieldsets = (
         (None, {
             'fields': (
@@ -339,17 +284,51 @@ class StudentAdmin(admin.ModelAdmin):
                 'full_name',
                 'student_id_number',
                 'date_of_birth',
-                'is_active'
-                )
+                'is_active',
+            )
         }),
-        (_("Courses and Dates"), {
-            'fields': ('courses', 'enrollment_date')
+        (_("Courses"), {
+            'fields': ('enrolled_courses',),
+        }),
+        (None, {
+            'fields': ('enrollment_date', 'created_at', 'updated_at',)
         }),
     )
+    ordering = ('full_name',)
 
-    def get_telegram_username(self, obj):
-        return obj.telegram_user.username if obj.telegram_user else _("N/A")
-    get_telegram_username.short_description = _("Telegram Username")
+
+# --- StudentApplication Admin ---
+@admin.register(StudentApplication)
+class StudentApplicationAdmin(admin.ModelAdmin):
+    list_display = (
+        'full_name',
+        'phone_number',
+        'course',
+        'status',
+        'applied_at',
+        'updated_at'
+    )
+    list_filter = ('status', 'course',)
+    list_editable = ('status',)
+    search_fields = ('full_name', 'phone_number', 'email', 'telegram_user__username',)
+    readonly_fields = ('applied_at', 'updated_at',)
+    fieldsets = (
+        (None, {
+            'fields': (
+                'telegram_user',
+                'full_name',
+                'phone_number',
+                'email',
+                'course',
+                'status',
+                'admin_notes'
+            )
+        }),
+        (None, {
+            'fields': ('applied_at', 'updated_at',)
+        }),
+    )
+    ordering = ('-applied_at',)
 
 
 # --- Grade Admin ---
@@ -358,118 +337,131 @@ class GradeAdmin(admin.ModelAdmin):
     list_display = (
         'student',
         'course',
-        'get_localized_lesson_topic_display',
         'score',
-        'grade_date'
-        )
-    list_filter = ('course', 'grade_date')
+        'grade_date',
+        'graded_by',
+    )
+    list_filter = ('course', 'graded_by', 'grade_date',)
+    list_editable = ('score',)
     search_fields = (
         'student__full_name',
         'course__title_en',
         'lesson_topic_en',
         'notes'
-        )
-    ordering = ('-grade_date', 'student__full_name')
+    )
     fieldsets = (
         (None, {
-            'fields': ('student', 'course', 'score', 'grade_date', 'notes')
-        }),
-        (_("Lesson Topic (Localized)"), {
             'fields': (
-                'lesson_topic_en',
-                'lesson_topic_ru',
-                'lesson_topic_uz'
-                ),
-            'classes': ('collapse',)
+                'student',
+                'course',
+                'score',
+                'grade_date',
+                'graded_by',
+                'notes'
+            )
+        }),
+        (_("Localized Lesson Topic"), {
+            'fields': ('lesson_topic_en', 'lesson_topic_ru', 'lesson_topic_uz',),
+            'classes': ('collapse',),
         }),
     )
-
-    def get_localized_lesson_topic_display(self, obj):
-        return obj.get_localized_lesson_topic(
-            self.request.user.language_code if hasattr(
-                self.request.user,
-                'language_code'
-                ) else 'en'
-            )
-    get_localized_lesson_topic_display.short_description = _("Lesson Topic")
+    ordering = ('-grade_date', 'student__full_name',)
 
 
 # --- ScheduleItem Admin ---
 @admin.register(ScheduleItem)
 class ScheduleItemAdmin(admin.ModelAdmin):
     list_display = (
-        'course', 'title_en', 'lesson_date', 'lesson_time', 'is_active'
+        'course',
+        'title_en',
+        'lesson_date',
+        'lesson_time',
+        'is_active',
     )
-    list_filter = ('is_active', 'course', 'lesson_date')
+    list_filter = ('course', 'is_active',)
+    list_editable = ('is_active',)
     search_fields = (
-        'course__title_en',
         'title_en', 'description_en',
         'title_ru', 'description_ru',
-        'title_uz', 'description_uz'
+        'title_uz', 'description_uz',
     )
-    ordering = ('lesson_date', 'lesson_time', 'course__title_en')
     fieldsets = (
         (None, {
-            'fields': ('course', ('lesson_date', 'lesson_time'), 'is_active')
+            'fields': (
+                'course',
+                'lesson_date',
+                'lesson_time',
+                'is_active',
+            )
         }),
-        (_("English Content"), {
-            'fields': ('title_en', 'description_en')
-        }),
-        (_("Russian Content"), {
-            'fields': ('title_ru', 'description_ru'),
+        (_("Localized Titles"), {
+            'fields': ('title_en', 'title_ru', 'title_uz'),
             'classes': ('collapse',),
         }),
-        (_("Uzbek Content"), {
-            'fields': ('title_uz', 'description_uz'),
+        (_("Localized Descriptions"), {
+            'fields': ('description_en', 'description_ru', 'description_uz'),
             'classes': ('collapse',),
         }),
     )
+    ordering = ['lesson_date', 'lesson_time']
 
 
 # --- CourseMaterial Admin ---
 @admin.register(CourseMaterial)
 class CourseMaterialAdmin(admin.ModelAdmin):
-    list_display = ('course', 'title_en', 'url')
-    list_filter = ('course',)
-    search_fields = (
-        'title_en', 'description_en', 'course__title_en', 'url',
-        'title_ru', 'description_ru',
-        'title_uz', 'description_uz'
+    list_display = (
+        'course',
+        'title_en',
+        'url',
+        'order',
     )
-    ordering = ('course__title_en', 'title_en')
+    list_filter = ('course',)
+    list_editable = ('order',)
+    search_fields = (
+        'title_en', 'description_en',
+        'title_ru', 'description_ru',
+        'title_uz', 'description_uz',
+        'url'
+    )
     fieldsets = (
         (None, {
-            'fields': ('course', 'url')
+            'fields': (
+                'course',
+                'url',
+                'order'
+            )
         }),
-        (_("English Content"), {
-            'fields': ('title_en', 'description_en')
-        }),
-        (_("Russian Content"), {
-            'fields': ('title_ru', 'description_ru'),
+        (_("Localized Titles"), {
+            'fields': ('title_en', 'title_ru', 'title_uz'),
             'classes': ('collapse',),
         }),
-        (_("Uzbek Content"), {
-            'fields': ('title_uz', 'description_uz'),
+        (_("Localized Descriptions"), {
+            'fields': ('description_en', 'description_ru', 'description_uz'),
             'classes': ('collapse',),
         }),
     )
+    ordering = ('course__title_en', 'order',)
 
 
-# --- AboutUsHistory Admin (НОВАЯ МОДЕЛЬ) ---
+# --- AboutUsHistory Admin ---
 @admin.register(AboutUsHistory)
 class AboutUsHistoryAdmin(admin.ModelAdmin):
-    list_display = ('title_en', 'updated_at')
+    list_display = (
+        'title_en',
+        'title_ru',
+        'title_uz',
+        'updated_at'
+    )
+    search_fields = ('title_en', 'title_ru', 'title_uz', 'content_en', 'content_ru', 'content_uz')
     readonly_fields = ('updated_at',)
+    # list_filter и list_editable удалены, так как нет подходящих полей в текущей модели AboutUsHistory
+    ordering = ('title_en', 'updated_at',) # Используем существующие поля для сортировки
     fieldsets = (
-        (_("English Content"), {
-            'fields': ('title_en', 'content_en')
+        (None, {
+            'fields': ('title_en', 'title_ru', 'title_uz')
         }),
-        (_("Russian Content"), {
-            'fields': ('title_ru', 'content_ru'),
-            'classes': ('collapse',),
-        }),
-        (_("Uzbek Content"), {
-            'fields': ('title_uz', 'content_uz'),
+        (_("Content"), {
+            'fields': ('content_en', 'content_ru', 'content_uz'),
             'classes': ('collapse',),
         }),
         (None, {
@@ -477,93 +469,92 @@ class AboutUsHistoryAdmin(admin.ModelAdmin):
         }),
     )
 
-    def has_add_permission(self, request):
-        return not AboutUsHistory.objects.exists()
-
 
 # --- TeamMember Admin ---
 @admin.register(TeamMember)
 class TeamMemberAdmin(admin.ModelAdmin):
-    list_display = ('name_en', 'position_en', 'order', 'is_active')
+    list_display = ('name_en', 'position_en', 'order', 'is_active',)
     list_filter = ('is_active',)
-    search_fields = ('name_en', 'position_en', 'bio_en')
-    ordering = ('order', 'name_en')
+    list_editable = ('order', 'is_active',)
+    search_fields = (
+        'name_en', 'name_ru', 'name_uz',
+        'position_en', 'position_ru', 'position_uz',
+        'bio_en', 'bio_ru', 'bio_uz',
+    )
     fieldsets = (
-        (_("English Content"), {
-            'fields': ('name_en', 'position_en', 'bio_en')
-        }),
-        (_("Russian Content"), {
-            'fields': ('name_ru', 'position_ru', 'bio_ru'),
-            'classes': ('collapse',),
-        }),
-        (_("Uzbek Content"), {
-            'fields': ('name_uz', 'position_uz', 'bio_uz'),
-            'classes': ('collapse',),
-        }),
         (None, {
             'fields': ('photo', 'order', 'is_active')
         }),
+        (_("Localized Names"), {
+            'fields': ('name_en', 'name_ru', 'name_uz'),
+            'classes': ('collapse',),
+        }),
+        (_("Localized Positions"), {
+            'fields': ('position_en', 'position_ru', 'position_uz'),
+            'classes': ('collapse',),
+        }),
+        (_("Localized Biographies"), {
+            'fields': ('bio_en', 'bio_ru', 'bio_uz'),
+            'classes': ('collapse',),
+        }),
     )
+    ordering = ('order', 'name_en',)
 
 
 # --- Partner Admin ---
 @admin.register(Partner)
 class PartnerAdmin(admin.ModelAdmin):
-    list_display = ('name', 'website_url', 'order', 'is_active')
+    list_display = ('name', 'website_url', 'order', 'is_active',)
     list_filter = ('is_active',)
-    search_fields = ('name', 'description_en', 'website_url')
-    ordering = ('order', 'name')
+    list_editable = ('order', 'is_active',)
+    search_fields = ('name', 'description_en', 'description_ru', 'description_uz', 'website_url',)
     fieldsets = (
         (None, {
-            'fields': ('name', 'logo', 'website_url')
+            'fields': ('name', 'logo', 'website_url', 'order', 'is_active',)
         }),
-        (_("Localized Description"), {
-            'fields': ('description_en', 'description_ru', 'description_uz'),
+        (_("Localized Descriptions"), {
+            'fields': ('description_en', 'description_ru', 'description_uz',),
             'classes': ('collapse',),
         }),
-        (None, {
-            'fields': ('order', 'is_active')
-        }),
     )
+    ordering = ('order', 'name',)
 
 
 # --- Achievement Admin ---
 @admin.register(Achievement)
 class AchievementAdmin(admin.ModelAdmin):
-    list_display = ('title_en', 'date', 'order', 'is_active')
-    list_filter = ('is_active', 'date')
-    search_fields = ('title_en', 'description_en')
-    ordering = ('-date', 'order')
+    list_display = ('title_en', 'date', 'order', 'is_active',)
+    list_filter = ('is_active',)
+    list_editable = ('order', 'is_active',)
+    search_fields = (
+        'title_en', 'description_en',
+        'title_ru', 'description_ru',
+        'title_uz', 'description_uz',
+    )
     fieldsets = (
-        (_("English Content"), {
-            'fields': ('title_en', 'description_en')
-        }),
-        (_("Russian Content"), {
-            'fields': ('title_ru', 'description_ru'),
-            'classes': ('collapse',),
-        }),
-        (_("Uzbek Content"), {
-            'fields': ('title_uz', 'description_uz'),
-            'classes': ('collapse',),
-        }),
         (None, {
             'fields': ('image', 'date', 'order', 'is_active')
         }),
+        (_("Localized Titles"), {
+            'fields': ('title_en', 'title_ru', 'title_uz'),
+            'classes': ('collapse',),
+        }),
+        (_("Localized Descriptions"), {
+            'fields': ('description_en', 'description_ru', 'description_uz'),
+            'classes': ('collapse',),
+        }),
     )
+    ordering = ('-date', 'order',)
 
 
 # --- Review Admin ---
 @admin.register(Review)
 class ReviewAdmin(admin.ModelAdmin):
-    list_display = ('author_name', 'rating', 'is_approved', 'created_at')
-    list_filter = ('is_approved', 'rating')
-    search_fields = (
-        'author_name',
-        'review_text_en',
-        'review_text_ru',
-        'review_text_uz'
-        )
-    ordering = ('-created_at',)
+    list_display = ('author_name', 'rating', 'is_approved', 'created_at',)
+    list_filter = ('is_approved', 'rating',)
+    list_editable = ('is_approved',)
+    search_fields = ('author_name', 'review_text_en', 'review_text_ru', 'review_text_uz',)
+    readonly_fields = ('created_at',)
     fieldsets = (
         (None, {
             'fields': ('author_name', 'rating', 'is_approved')
@@ -577,7 +568,6 @@ class ReviewAdmin(admin.ModelAdmin):
         }),
     )
     readonly_fields = ('created_at',)
-
 
 # --- ContactInfo Admin ---
 @admin.register(ContactInfo)
@@ -605,10 +595,3 @@ class ContactInfoAdmin(admin.ModelAdmin):
             'fields': ('updated_at',)
         }),
     )
-
-    # Обычно ContactInfo это Singleton - одна запись
-    def has_add_permission(self, request):
-        return not ContactInfo.objects.exists()
-
-    def has_delete_permission(self, request, obj=None):
-        return False

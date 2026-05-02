@@ -1,7 +1,6 @@
 # your_telegram_bot_project/bot/services/user_service.py
 
 import logging
-from django.conf import settings
 
 from asgiref.sync import sync_to_async
 from telegram_bot.models import TelegramUser
@@ -17,6 +16,7 @@ class UserService:
         username: str | None,
         first_name: str | None,
         last_name: str | None,
+        language_code: str | None,
         is_bot: bool) -> tuple[TelegramUser, bool]:
         """
         Получает или создает пользователя Telegram.
@@ -30,12 +30,11 @@ class UserService:
                 'username': username,
                 'first_name': first_name,
                 'last_name': last_name,
-                'language_code': settings.DEFAULT_LANGUAGE, # Устанавливаем язык по умолчанию
+                'language_code': language_code,
                 'is_bot': is_bot
             }
         )
         if not created:
-            # Обновляем данные пользователя, если они изменились
             updated = False
             if user.username != username:
                 user.username = username
@@ -53,7 +52,7 @@ class UserService:
                 user.save()
                 logger.info(f"User {user_id} updated: {user.username or user.first_name}")
 
-        logger.info(f"User {user_id} {'created' if created else 'retrieved'}. Current language in DB: {user.language_code}")
+        logger.info(f"User {user_id} {'created' if created else 'found'}. Current language: {user.language_code}")
         return user, created
 
     @sync_to_async
@@ -64,7 +63,7 @@ class UserService:
         try:
             return TelegramUser.objects.get(user_id=user_id)
         except TelegramUser.DoesNotExist:
-            logger.warning(f"User with ID {user_id} not found.")
+            logger.warning(f"User with id {user_id} not found")
             return None
 
     @sync_to_async
@@ -84,8 +83,14 @@ class UserService:
             user = TelegramUser.objects.get(user_id=user_id)
             user.language_code = language_code
             user.save()
-            logger.info(f"User {user_id} language updated to {language_code}.")
+            logger.info(f"User language {user_id} updated to {language_code}.")
             return True
         except TelegramUser.DoesNotExist:
-            logger.warning(f"Attempted to set language for non-existent user {user_id}.")
+            logger.warning(
+                f"Attempting to set the language for a non-existent user {user_id}."
+                )
             return False
+
+
+# Создаем экземпляр класса UserService
+user_service = UserService()
